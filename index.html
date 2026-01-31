@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Verdanita Landscaping | Garden Design & Paving Solutions</title>
+<meta name="description"
+content="Verdanita provides professional garden designing, landscaping, paving blocks and outdoor space development.">
+
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKK706CYDK"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XKK706CYDK');
+</script>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: '#163f22',
+        accent: '#b7e57f'
+      }
+    }
+  }
+}
+</script>
+
+<style>
+html{scroll-behavior:smooth}
+</style>
+
+<!-- SEO Schema -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"LandscapingBusiness",
+"name":"Verdanita Landscaping",
+"url":"https://www.verdanitalandscaper.in",
+"logo":"https://www.verdanitalandscaper.in/assets/logo.png",
+"telephone":"+91-8075769756",
+"email":"verdanita@protonmail.com",
+"areaServed":"IN",
+"description":"Garden designing, landscaping, paving blocks and outdoor development services."
+}
+</script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+<!-- HERO -->
+<header class="relative min-h-screen flex items-center justify-center text-white">
+  <div class="absolute inset-0 bg-cover bg-center"
+       style="background-image:url('https://images.unsplash.com/photo-1734079692079-aae7e24a7035?w=1600');"></div>
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <div class="relative z-10 max-w-4xl text-center px-6" data-aos="fade-up">
+    <img src="assets/logo.png" class="mx-auto w-40 mb-8" alt="Verdanita Logo">
+    <h1 class="text-5xl md:text-6xl font-bold" data-i18n="hero_title"></h1>
+    <p class="mt-6 text-xl text-gray-200" data-i18n="hero_sub"></p>
+
+    <a href="#contact"
+       onclick="gtag('event','contact_click',{event_category:'lead'});"
+       class="inline-block mt-10 px-10 py-4 bg-accent text-black font-semibold rounded-full hover:scale-105 transition"
+       data-i18n="cta_btn"></a>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-brand text-white shadow">
+  <div class="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-6 py-4 font-semibold">
+    <a href="#services" data-i18n="nav_services"></a>
+    <a href="#projects" data-i18n="nav_projects"></a>
+    <a href="#products" data-i18n="nav_products"></a>
+    <a href="#about" data-i18n="nav_about"></a>
+    <a href="#contact" data-i18n="nav_contact"></a>
+
+    <select id="langSwitcher" class="text-black px-2 py-1 rounded">
+      <option value="en">EN</option>
+      <option value="ml">ML</option>
+    </select>
+  </div>
+</nav>
+
+<!-- SERVICES -->
+<section id="services" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6 space-y-16">
+    <div>
+      <h2 class="text-4xl font-bold mb-4" data-i18n="service_garden"></h2>
+      <p class="text-lg text-gray-700" data-i18n="service_garden_desc"></p>
+    </div>
+    <div>
+      <h2 class="text-4xl font-bold mb-4" data-i18n="service_landscape"></h2>
+      <p class="text-lg text-gray-700" data-i18n="service_landscape_desc"></p>
+    </div>
+    <div>
+      <h2 class="text-4xl font-bold mb-4" data-i18n="service_paving"></h2>
+      <p class="text-lg text-gray-700" data-i18n="service_paving_desc"></p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-24 bg-white">
+  <h2 class="text-4xl font-bold text-center mb-16">Featured Projects</h2>
+  <div class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
+    <img loading="lazy" class="rounded-3xl shadow-lg" src="https://images.unsplash.com/photo-1763289466013-36fd9cca2519?w=800">
+    <img loading="lazy" class="rounded-3xl shadow-lg" src="https://plus.unsplash.com/premium_photo-1668930508685-af79c83e23af?w=800">
+    <img loading="lazy" class="rounded-3xl shadow-lg" src="https://images.unsplash.com/photo-1758696655075-8114e15306bd?w=800">
+    <img loading="lazy" class="rounded-3xl shadow-lg" src="https://images.unsplash.com/photo-1551394846-d03c5a4bc4bc?w=800">
+    <img loading="lazy" class="rounded-3xl shadow-lg" src="https://images.unsplash.com/photo-1681465766418-6474cfdcbb3c?w=800">
+    <img loading="lazy" class="rounded-3xl shadow-lg" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800">
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="py-24 max-w-7xl mx-auto px-6">
+  <h2 class="text-4xl font-bold text-center mb-16" data-i18n="products_title"></h2>
+  <div class="grid md:grid-cols-4 gap-8">
+    <div class="bg-white p-6 rounded-2xl shadow">Concrete Paving Blocks</div>
+    <div class="bg-white p-6 rounded-2xl shadow">Grass Pavers</div>
+    <div class="bg-white p-6 rounded-2xl shadow">Garden Tiles</div>
+    <div class="bg-white p-6 rounded-2xl shadow">Kerb Stones</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 bg-white">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-6" data-i18n="about_title"></h2>
+    <p class="text-lg text-gray-700" data-i18n="about_desc"></p>
+  </div>
+</section>
+
+<!-- CONTACT (EMAILJS ENABLED) -->
+<section id="contact" class="py-24 bg-brand text-white">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-6">Let’s Build Your Dream Garden</h2>
+    <p class="text-lg mb-2">📧 verdanita@protonmail.com</p>
+    <p class="text-lg mb-10">📞 +91 8075769756</p>
+
+    <form id="contactForm" class="bg-white text-black p-8 rounded-2xl shadow-lg grid gap-5">
+      <input type="text" name="name" placeholder="Your Name" required class="p-4 border rounded-lg">
+      <input type="email" name="email" placeholder="Email Address" required class="p-4 border rounded-lg">
+      <input type="tel" name="phone" placeholder="Phone Number" class="p-4 border rounded-lg">
+      <textarea name="message" placeholder="Project Details" class="p-4 border rounded-lg h-32"></textarea>
+
+      <button type="submit"
+              class="bg-brand text-white py-3 rounded-lg font-semibold hover:bg-green-900 transition">
+        Send Enquiry
+      </button>
+
+      <p id="formStatus" class="text-sm"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="bg-black text-gray-400 py-6 text-center">
+© 2026 Verdanita Landscaping. All Rights Reserved.
+</footer>
+
+<!-- WhatsApp Floating -->
+<a href="https://wa.me/918075769756"
+   target="_blank"
+   onclick="gtag('event','whatsapp_click',{event_category:'lead'});"
+   class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition z-50">
+<span class="text-white font-bold">WA</span>
+</a>
+
+<!-- Language Script -->
+<script>
+const translations={
+en:{
+hero_title:"Landscaping & Outdoor Living",
+hero_sub:"Garden Design • Paving Blocks • Green Spaces",
+cta_btn:"Get Free Consultation",
+nav_services:"Services",
+nav_projects:"Projects",
+nav_products:"Products",
+nav_about:"About",
+nav_contact:"Contact",
+service_garden:"Garden Designing",
+service_garden_desc:"Custom garden layouts with sustainable plant selection.",
+service_landscape:"Landscaping & Outdoor Development",
+service_landscape_desc:"Complete execution of outdoor spaces.",
+service_paving:"Paving & Hardscape Solutions",
+service_paving_desc:"Professional paving block installation.",
+products_title:"Garden Elements & Paving Products",
+about_title:"About Verdanita",
+about_desc:"Verdanita creates beautiful outdoor environments with expert planning and execution."
+},
+ml:{
+hero_title:"ലാൻഡ്‌സ്‌കേപ്പിംഗ് & ഔട്ട്‌ഡോർ ഡിസൈൻ",
+hero_sub:"ഗാർഡൻ ഡിസൈൻ • പേവിംഗ് ബ്ലോക്കുകൾ • ഹരിത ഇടങ്ങൾ",
+cta_btn:"സൗജന്യ കൺസൾട്ടേഷൻ",
+nav_services:"സേവനങ്ങൾ",
+nav_projects:"പ്രോജക്ടുകൾ",
+nav_products:"ഉൽപ്പന്നങ്ങൾ",
+nav_about:"ഞങ്ങളെക്കുറിച്ച്",
+nav_contact:"ബന്ധപ്പെടുക",
+service_garden:"ഗാർഡൻ ഡിസൈൻ",
+service_garden_desc:"പരിസ്ഥിതി സൗഹൃദ ഗാർഡൻ രൂപകൽപ്പന.",
+service_landscape:"ലാൻഡ്‌സ്‌കേപ്പിംഗ്",
+service_landscape_desc:"പൂർണ്ണ ഔട്ട്‌ഡോർ വികസനം.",
+service_paving:"പേവിംഗ് ബ്ലോക്കുകൾ",
+service_paving_desc:"ഉയർന്ന നിലവാരമുള്ള ഇൻസ്റ്റലേഷൻ.",
+products_title:"ഗാർഡൻ ഉൽപ്പന്നങ്ങൾ",
+about_title:"Verdanitaയെക്കുറിച്ച്",
+about_desc:"Verdanita മനോഹരമായ പ്രകൃതിദത്ത ഇടങ്ങൾ സൃഷ്ടിക്കുന്നു."
+}
+};
+
+function loadLang(lang){
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+el.innerText=translations[lang][el.dataset.i18n];
+});
+localStorage.setItem("lang",lang);
+}
+document.getElementById("langSwitcher").addEventListener("change",e=>loadLang(e.target.value));
+loadLang(localStorage.getItem("lang")||"en");
+</script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+emailjs.init("YOUR_PUBLIC_KEY");
+document.getElementById("contactForm").addEventListener("submit",function(e){
+e.preventDefault();
+emailjs.sendForm("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",this)
+.then(()=>{
+document.getElementById("formStatus").innerText="Message sent successfully!";
+gtag('event','form_submit',{event_category:'lead'});
+this.reset();
+},()=>{
+document.getElementById("formStatus").innerText="Error sending message.";
+});
+});
+</script>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({once:true,duration:1200});</script>
+
+</body>
+</html>
+
