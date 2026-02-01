@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdanita Media Admin</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-6">
+
+<!-- LOGIN -->
+<div id="loginBox" class="max-w-md mx-auto bg-white p-8 rounded-xl shadow">
+  <h2 class="text-2xl font-bold mb-6">Admin Login</h2>
+  <input id="password" type="password"
+         placeholder="Password"
+         class="w-full p-3 border rounded mb-4">
+  <button onclick="login()"
+          class="w-full bg-green-700 text-white py-3 rounded font-semibold">
+    Login
+  </button>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel" class="hidden max-w-4xl mx-auto bg-white p-8 rounded-xl shadow">
+
+  <h1 class="text-3xl font-bold mb-8">Media Upload Portal</h1>
+
+  <!-- LOGO UPLOAD -->
+  <div class="mb-10">
+    <h2 class="text-xl font-bold mb-3">Upload Logo</h2>
+    <input type="file" accept="image/*"
+           onchange="uploadLogo(this)"
+           class="mb-3">
+    <p class="text-sm text-gray-500">Replaces website logo instantly</p>
+  </div>
+
+  <hr class="my-8">
+
+  <!-- PROJECT UPLOAD -->
+  <div>
+    <h2 class="text-xl font-bold mb-3">Upload Project Image</h2>
+    <input type="file" accept="image/*"
+           onchange="uploadProject(this)"
+           class="mb-4">
+
+    <div id="projectList" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+  </div>
+</div>
+
+<script>
+const ADMIN_PASSWORD = "verdanita123";
+
+/* LOGIN */
+function login(){
+  if(document.getElementById("password").value === ADMIN_PASSWORD){
+    loginBox.classList.add("hidden");
+    adminPanel.classList.remove("hidden");
+    loadProjectList();
+  } else alert("Wrong password");
+}
+
+/* CONVERT FILE TO BASE64 */
+function toBase64(file, callback){
+  const reader = new FileReader();
+  reader.onload = () => callback(reader.result);
+  reader.readAsDataURL(file);
+}
+
+/* LOGO UPLOAD */
+function uploadLogo(input){
+  if(!input.files[0]) return;
+  toBase64(input.files[0], data=>{
+    localStorage.setItem("siteLogo", data);
+    alert("Logo updated!");
+  });
+}
+
+/* PROJECT IMAGE UPLOAD */
+function uploadProject(input){
+  if(!input.files[0]) return;
+  toBase64(input.files[0], data=>{
+    const projects = JSON.parse(localStorage.getItem("projects")) || [];
+    projects.push(data);
+    localStorage.setItem("projects", JSON.stringify(projects));
+    loadProjectList();
+  });
+}
+
+/* LOAD + DELETE PROJECTS */
+function loadProjectList(){
+  const projects = JSON.parse(localStorage.getItem("projects")) || [];
+  const list = document.getElementById("projectList");
+  list.innerHTML = "";
+
+  projects.forEach((img,i)=>{
+    list.innerHTML += `
+      <div class="relative">
+        <img src="${img}" class="rounded-lg h-32 w-full object-cover">
+        <button onclick="deleteProject(${i})"
+                class="absolute top-2 right-2 bg-red-600 text-white px-2 rounded">
+          ✕
+        </button>
+      </div>`;
+  });
+}
+
+function deleteProject(i){
+  const projects = JSON.parse(localStorage.getItem("projects"));
+  projects.splice(i,1);
+  localStorage.setItem("projects", JSON.stringify(projects));
+  loadProjectList();
+}
+</script>
+
+</body>
+</html>

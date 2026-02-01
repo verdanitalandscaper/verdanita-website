@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdanita Admin Panel</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-6">
+
+<!-- LOGIN -->
+<div id="loginBox" class="max-w-md mx-auto bg-white p-8 rounded-xl shadow">
+  <h2 class="text-2xl font-bold mb-6">Admin Login</h2>
+  <input id="password" type="password"
+         placeholder="Enter password"
+         class="w-full p-3 border rounded mb-4">
+  <button onclick="login()"
+          class="w-full bg-green-700 text-white py-3 rounded font-semibold">
+    Login
+  </button>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel" class="hidden max-w-4xl mx-auto bg-white p-8 rounded-xl shadow">
+
+  <h1 class="text-3xl font-bold mb-6">Product Manager</h1>
+
+  <!-- ADD PRODUCT -->
+  <div class="grid md:grid-cols-3 gap-4 mb-6">
+    <input id="title" placeholder="Product Name" class="p-3 border rounded">
+    <input id="image" placeholder="Image URL" class="p-3 border rounded">
+
+    <select id="category" class="p-3 border rounded">
+      <option value="Tiles">Tiles</option>
+      <option value="Pavers">Pavers</option>
+      <option value="Garden">Garden</option>
+    </select>
+  </div>
+
+  <button onclick="addProduct()"
+          class="bg-green-700 text-white px-6 py-3 rounded font-semibold">
+    Add Product
+  </button>
+
+  <hr class="my-8">
+
+  <!-- PRODUCT LIST -->
+  <h2 class="text-xl font-bold mb-4">Existing Products</h2>
+  <div id="list" class="space-y-3"></div>
+</div>
+
+<script>
+const ADMIN_PASSWORD = "verdanita123"; // CHANGE PASSWORD
+
+function login(){
+  if(document.getElementById("password").value === ADMIN_PASSWORD){
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("adminPanel").classList.remove("hidden");
+    loadAdmin();
+  } else {
+    alert("Wrong password");
+  }
+}
+
+function loadAdmin(){
+  const products = JSON.parse(localStorage.getItem("products")) || [];
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+
+  products.forEach((p, i) => {
+    list.innerHTML += `
+      <div class="flex items-center gap-3 bg-gray-100 p-3 rounded">
+        <input value="${p.title}"
+               onchange="editTitle(${i}, this.value)"
+               class="p-2 border rounded flex-1">
+
+        <select onchange="editCategory(${i}, this.value)"
+                class="p-2 border rounded">
+          <option ${p.category==="Tiles"?"selected":""}>Tiles</option>
+          <option ${p.category==="Pavers"?"selected":""}>Pavers</option>
+          <option ${p.category==="Garden"?"selected":""}>Garden</option>
+        </select>
+
+        <button onclick="removeProduct(${i})"
+                class="text-red-600 font-bold">Delete</button>
+      </div>
+    `;
+  });
+}
+
+function addProduct(){
+  const title = document.getElementById("title").value;
+  const image = document.getElementById("image").value;
+  const category = document.getElementById("category").value;
+
+  if(!title || !image) return alert("Fill all fields");
+
+  const products = JSON.parse(localStorage.getItem("products")) || [];
+  products.push({ title, image, category });
+  localStorage.setItem("products", JSON.stringify(products));
+
+  document.getElementById("title").value = "";
+  document.getElementById("image").value = "";
+
+  loadAdmin();
+}
+
+function editTitle(i, value){
+  const products = JSON.parse(localStorage.getItem("products"));
+  products[i].title = value;
+  localStorage.setItem("products", JSON.stringify(products));
+}
+
+function editCategory(i, value){
+  const products = JSON.parse(localStorage.getItem("products"));
+  products[i].category = value;
+  localStorage.setItem("products", JSON.stringify(products));
+}
+
+function removeProduct(i){
+  const products = JSON.parse(localStorage.getItem("products"));
+  products.splice(i,1);
+  localStorage.setItem("products", JSON.stringify(products));
+  loadAdmin();
+}
+</script>
+
+</body>
+</html>
