@@ -7,18 +7,6 @@
 <title>Verdanita Landscaping | Garden Design & Paving Solutions</title>
 <meta name="description" content="Verdanita provides professional garden designing, landscaping, paving blocks and outdoor space development.">
 
-<link rel="preconnect" href="https://images.unsplash.com">
-<link rel="preconnect" href="https://www.googletagmanager.com">
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3C50DHTCMN"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-3C50DHTCMN');
-</script>
-
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -52,9 +40,11 @@ html{scroll-behavior:smooth}
   <div class="absolute inset-0 bg-black/70"></div>
 
   <div class="relative z-10 text-center px-6" data-aos="fade-up">
-    <!-- ✅ DYNAMIC LOGO -->
+
+    <!-- LOGO (FIXED) -->
     <img id="siteLogo"
-         class="mx-auto w-60 mb-6"
+         src="assets/verdanita-logo-white.png"
+         class="mx-auto w-64 mb-6"
          alt="Verdanita Logo">
 
     <p class="text-xl text-gray-200 font-semibold">
@@ -65,7 +55,7 @@ html{scroll-behavior:smooth}
 
 <!-- NAV -->
 <nav class="sticky top-0 z-50 bg-brand text-white shadow">
-  <div class="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-6 py-4 font-semibold">
+  <div class="max-w-7xl mx-auto flex justify-center gap-6 py-4 font-semibold">
     <a href="#home">Home</a>
     <a href="#services">Services</a>
     <a href="#projects">Projects</a>
@@ -96,8 +86,7 @@ html{scroll-behavior:smooth}
 <!-- PROJECTS -->
 <section id="projects" class="py-24 bg-white">
   <h2 class="text-4xl font-bold text-center mb-16">Featured Projects</h2>
-  <div id="projectGrid"
-       class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6"></div>
+  <div id="projectGrid" class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6"></div>
 </section>
 
 <!-- PRODUCTS -->
@@ -125,63 +114,41 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-24 bg-brand text-white">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-6">Let’s Build Your Dream Garden</h2>
-    <p class="text-lg mb-10">📧 verdanita@protonmail.com | 📞 +91 8075769756</p>
-
-    <form id="contactForm" class="bg-white text-black p-8 rounded-2xl shadow-lg grid gap-5">
-      <input name="name" placeholder="Your Name" required class="p-4 border rounded-lg">
-      <input name="email" type="email" placeholder="Email" required class="p-4 border rounded-lg">
-      <input name="phone" placeholder="Phone" class="p-4 border rounded-lg">
-      <textarea name="message" placeholder="Message" class="p-4 border rounded-lg h-32"></textarea>
-
-      <button class="bg-brand text-white py-3 rounded-lg font-semibold">
-        Send Enquiry
-      </button>
-
-      <p id="formStatus" class="text-green-600"></p>
-    </form>
-  </div>
+<section id="contact" class="py-24 bg-brand text-white text-center">
+  <h2 class="text-4xl font-bold mb-6">Let’s Build Your Dream Garden</h2>
+  <p class="text-lg">📧 verdanita@protonmail.com | 📞 +91 8075769756</p>
 </section>
 
 <footer class="bg-black text-gray-400 py-6 text-center">
 © 2026 Verdanita Landscaping. All Rights Reserved.
 </footer>
 
-<!-- WhatsApp -->
-<a href="https://wa.me/918075769756"
-   class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-WA
-</a>
-
-<!-- ✅ LOAD LOGO FROM site.json -->
+<!-- LOAD LOGO FROM site.json (WORKING) -->
 <script>
 fetch("assets/site.json")
-  .then(res => res.json())
+  .then(r => r.json())
   .then(data => {
-    document.getElementById("siteLogo").src = data.logo;
-  })
-  .catch(err => console.error("Logo load error:", err));
+    if(data.logo){
+      document.getElementById("siteLogo").src = data.logo;
+    }
+  });
 </script>
 
-<!-- PROJECTS (STATIC DEMO) -->
+<!-- LOAD PROJECTS -->
 <script>
-const projectImages = [
-  "https://images.unsplash.com/photo-1763289466013-36fd9cca2519?w=800",
-  "https://plus.unsplash.com/premium_photo-1668930508685-af79c83e23af?w=800",
-  "https://images.unsplash.com/photo-1758696655075-8114e15306bd?w=800"
-];
-
-const projectGrid = document.getElementById("projectGrid");
-projectImages.forEach(img=>{
-  projectGrid.innerHTML += `
-    <img src="${img}" class="rounded-3xl shadow-lg w-full h-64 object-cover">
-  `;
-});
+fetch("assets/projects.json")
+  .then(r => r.json())
+  .then(images => {
+    const grid = document.getElementById("projectGrid");
+    images.forEach(img => {
+      grid.innerHTML += `
+        <img src="${img}" class="rounded-3xl shadow-lg w-full h-64 object-cover">
+      `;
+    });
+  });
 </script>
 
-<!-- PRODUCTS JSON -->
+<!-- LOAD PRODUCTS -->
 <script>
 let allProducts = [];
 
@@ -199,7 +166,6 @@ function filterCategory(cat){
 function renderProducts(cat){
   const grid = document.getElementById("productGrid");
   grid.innerHTML = "";
-
   allProducts
     .filter(p => cat === "all" || p.category === cat)
     .forEach(p => {
@@ -213,28 +179,10 @@ function renderProducts(cat){
 }
 </script>
 
-<!-- EMAILJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-emailjs.init("6rohzbSTh7BhllYdn");
-
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  emailjs.sendForm("service_dutoz3i","template_7rucznj",this)
-    .then(() => {
-      document.getElementById("formStatus").innerText = "Message sent successfully!";
-      this.reset();
-    })
-    .catch(() => {
-      document.getElementById("formStatus").innerText = "Error sending message";
-    });
-});
-</script>
-
 <!-- AOS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>AOS.init({once:true,duration:1200});</script>
 
 </body>
 </html>
+
