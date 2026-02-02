@@ -52,10 +52,8 @@ html{scroll-behavior:smooth}
   <div class="absolute inset-0 bg-black/70"></div>
 
   <div class="relative z-10 text-center px-6" data-aos="fade-up">
+    <!-- ✅ DYNAMIC LOGO -->
     <img id="siteLogo"
-         src="{
-  "logo": "assets/logo.png"
-}g"
          class="mx-auto w-60 mb-6"
          alt="Verdanita Logo">
 
@@ -98,10 +96,8 @@ html{scroll-behavior:smooth}
 <!-- PROJECTS -->
 <section id="projects" class="py-24 bg-white">
   <h2 class="text-4xl font-bold text-center mb-16">Featured Projects</h2>
-
   <div id="projectGrid"
-       class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
-  </div>
+       class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6"></div>
 </section>
 
 <!-- PRODUCTS -->
@@ -159,7 +155,17 @@ html{scroll-behavior:smooth}
 WA
 </a>
 
-<!-- PROJECT DATA -->
+<!-- ✅ LOAD LOGO FROM site.json -->
+<script>
+fetch("assets/site.json")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("siteLogo").src = data.logo;
+  })
+  .catch(err => console.error("Logo load error:", err));
+</script>
+
+<!-- PROJECTS (STATIC DEMO) -->
 <script>
 const projectImages = [
   "https://images.unsplash.com/photo-1763289466013-36fd9cca2519?w=800",
@@ -215,16 +221,14 @@ emailjs.init("6rohzbSTh7BhllYdn");
 document.getElementById("contactForm").addEventListener("submit", function(e){
   e.preventDefault();
 
-  emailjs.sendForm(
-    "service_dutoz3i",
-    "template_7rucznj",
-    this
-  ).then(() => {
-    document.getElementById("formStatus").innerText = "Message sent successfully!";
-    this.reset();
-  }).catch(() => {
-    document.getElementById("formStatus").innerText = "Error sending message";
-  });
+  emailjs.sendForm("service_dutoz3i","template_7rucznj",this)
+    .then(() => {
+      document.getElementById("formStatus").innerText = "Message sent successfully!";
+      this.reset();
+    })
+    .catch(() => {
+      document.getElementById("formStatus").innerText = "Error sending message";
+    });
 });
 </script>
 
@@ -234,8 +238,3 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
 
 </body>
 </html>
-
-
-
-
-
