@@ -13,92 +13,26 @@
 <meta property="og:image" content="https://verdanitalandscaper.online/assets/preview.jpg">
 <meta property="og:type" content="website">
 
+<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-
-/* Smooth scroll */
-html { scroll-behavior: smooth; }
-
-/* ===== HERO ANIMATIONS ===== */
-
-/* Background cinematic zoom */
-.hero-zoom {
-  animation: zoomEffect 20s ease-in-out infinite alternate;
-}
-
-@keyframes zoomEffect {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.08); }
-}
-
-/* Overlay fade */
-.fade-overlay {
-  animation: fadeInOverlay 2s ease forwards;
-  opacity: 0;
-}
-
-@keyframes fadeInOverlay {
-  to { opacity: 1; }
-}
-
-/* Logo fade */
-.fade-logo {
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 0.5s;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-/* Slide up text */
-.slide-up {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: slideUp 1.2s ease forwards;
-}
-
-.slide-up.delay-1 { animation-delay: 1s; }
-.slide-up.delay-2 { animation-delay: 1.5s; }
-.slide-up.delay-3 { animation-delay: 2s; }
-
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* CTA hover */
-.cta-btn {
-  transition: all 0.3s ease;
-}
-
-.cta-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-}
-
-</style>
+<!-- External CSS -->
+<link rel="stylesheet" href="assets/style.css">
 
 </head>
+
 <body class="bg-gray-100 text-gray-800">
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <header class="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
 
-  <!-- Background Image -->
   <img src="assets/hero.jpg"
        alt="Luxury Garden Landscaping"
        class="absolute inset-0 w-full h-full object-cover hero-zoom"
        loading="eager">
 
-  <!-- Gradient Overlay -->
   <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80 fade-overlay"></div>
 
-  <!-- Content -->
   <div class="relative z-10 text-center px-6 max-w-4xl">
 
     <img src="assets/verdanita-logo-white.png"
@@ -122,8 +56,8 @@ html { scroll-behavior: smooth; }
 
 </header>
 
-<!-- SIMPLE NEXT SECTION (Example) -->
-<section id="contact" class="py-24 bg-white text-center">
+<!-- CONTACT -->
+<section id="contact" class="py-24 bg-white text-center fade-up">
   <h2 class="text-4xl font-bold mb-6">Contact Verdanita</h2>
   <p class="text-lg text-gray-600 mb-4">
     Let’s build your dream garden today.
@@ -134,8 +68,7 @@ html { scroll-behavior: smooth; }
   </p>
 </section>
 
-</body>
-</html>
+<!-- Scroll animation JS -->
 <script>
 const elements = document.querySelectorAll('.fade-up');
 
@@ -151,4 +84,9 @@ function reveal(){
 window.addEventListener('scroll', reveal);
 reveal();
 </script>
+
+</body>
+</html>
+
+
 
