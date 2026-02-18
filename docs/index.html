@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Verdanita Landscaping | Garden Design & Paving Solutions</title>
-<meta name="description" content="Verdanita provides professional garden designing, landscaping, paving blocks and outdoor space development.">
+<meta name="description" content="Professional landscaping, garden design & paving solutions in Kerala.">
 
-<link rel="preconnect" href="https://images.unsplash.com">
-<link rel="preconnect" href="https://www.googletagmanager.com">
+<!-- SEO -->
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Verdanita Landscaping | Garden Design & Paving">
+<meta property="og:description" content="Expert landscaping and paving solutions in Kerala.">
+<meta property="og:image" content="https://verdanitalandscaper.online/assets/images/preview.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://verdanitalandscaper.online">
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-35KHEGZEYN"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-35KHEGZEYN');
-</script>
+<link rel="preload" href="assets/verdanita-logo-white.png" as="image">
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- AOS -->
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        brand: '#163f22',
-        accent: '#b7e57f'
-      }
-    }
-  }
+<!-- Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "LocalBusiness",
+ "name": "Verdanita Landscaping",
+ "url": "https://verdanitalandscaper.online",
+ "telephone": "+918075769756",
+ "areaServed": "Kerala",
+ "description": "Garden design, landscaping and paving solutions."
 }
 </script>
 
-<style>
-html{scroll-behavior:smooth}
-</style>
-</head>
+<script src="https://cdn.tailwindcss.com"></script>
 
+<style>
+html { scroll-behavior:smooth }
+
+.fade-up {
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+.fade-up.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+
+</head>
 <body class="bg-gray-100 text-gray-800">
 
 <!-- HERO -->
-<header id="home" class="relative min-h-screen flex items-center justify-center text-white">
+<header class="relative min-h-screen flex items-center justify-center text-white">
   <div class="absolute inset-0 bg-cover bg-center"
-       style="background-image:url('https://images.unsplash.com/photo-1734079692079-aae7e24a7035?w=1600');"></div>
+       style="background-image:url('assets/images/hero.jpg');"></div>
   <div class="absolute inset-0 bg-black/70"></div>
 
-  <div class="relative z-10 text-center px-6" data-aos="fade-up">
-    <!-- ✅ DYNAMIC LOGO -->
-   <img id="siteLogo"
-     src="logo": "docs/assets/verdanita-logo-white.png"
-     class="mx-auto w-60 mb-6"
-     alt="Verdanita Logo">
-
+  <div class="relative z-10 text-center px-6 fade-up">
+    <img id="siteLogo" class="mx-auto w-60 mb-6" alt="Verdanita Logo">
     <p class="text-xl text-gray-200 font-semibold">
       Garden Design • Paving Blocks • Green Spaces
     </p>
@@ -65,9 +65,8 @@ html{scroll-behavior:smooth}
 </header>
 
 <!-- NAV -->
-<nav class="sticky top-0 z-50 bg-brand text-white shadow">
-  <div class="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-6 py-4 font-semibold">
-    <a href="#home">Home</a>
+<nav class="sticky top-0 z-50 bg-green-900 text-white shadow">
+  <div class="max-w-7xl mx-auto flex justify-center gap-6 py-4 font-semibold">
     <a href="#services">Services</a>
     <a href="#projects">Projects</a>
     <a href="#products">Products</a>
@@ -77,7 +76,7 @@ html{scroll-behavior:smooth}
 </nav>
 
 <!-- SERVICES -->
-<section id="services" class="py-24 bg-white">
+<section id="services" class="py-24 bg-white fade-up">
   <div class="max-w-6xl mx-auto px-6 space-y-16">
     <div>
       <h2 class="text-4xl font-bold mb-4">Garden Designing</h2>
@@ -95,29 +94,22 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="py-24 bg-white">
+<section id="projects" class="py-24 bg-gray-100 fade-up">
   <h2 class="text-4xl font-bold text-center mb-16">Featured Projects</h2>
   <div id="projectGrid"
        class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6"></div>
 </section>
 
 <!-- PRODUCTS -->
-<section id="products" class="py-24 max-w-7xl mx-auto px-6">
+<section id="products" class="py-24 max-w-7xl mx-auto px-6 fade-up">
   <h2 class="text-4xl font-bold text-center mb-16">Garden Elements & Paving Products</h2>
-
-  <div class="flex justify-center gap-4 mb-10">
-    <button onclick="filterCategory('all')" class="px-4 py-2 bg-brand text-white rounded">All</button>
-    <button onclick="filterCategory('Tiles')" class="px-4 py-2 bg-gray-200 rounded">Tiles</button>
-    <button onclick="filterCategory('Pavers')" class="px-4 py-2 bg-gray-200 rounded">Pavers</button>
-    <button onclick="filterCategory('Garden')" class="px-4 py-2 bg-gray-200 rounded">Garden/Maintenance </button>
-  </div>
-
-  <div id="productGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+  <div id="productGrid"
+       class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="py-24 bg-white">
-  <div class="max-w-5xl mx-auto px-6">
+<section id="about" class="py-24 bg-white fade-up">
+  <div class="max-w-5xl mx-auto px-6 text-center">
     <h2 class="text-4xl font-bold mb-6">About Verdanita</h2>
     <p class="text-lg text-gray-700">
       Verdanita creates beautiful outdoor environments with expert planning and execution.
@@ -126,119 +118,67 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-24 bg-brand text-white">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-6">Let’s Build Your Dream Garden</h2>
-    <p class="text-lg mb-10"> verdanita@protonmail.com | 📞 +91 8075769756</p>
-
-    <form id="contactForm" class="bg-white text-black p-8 rounded-2xl shadow-lg grid gap-5">
-      <input name="name" placeholder="Your Name" required class="p-4 border rounded-lg">
-      <input name="email" type="email" placeholder="Email" required class="p-4 border rounded-lg">
-      <input name="phone" placeholder="Phone" class="p-4 border rounded-lg">
-      <textarea name="message" placeholder="Message" class="p-4 border rounded-lg h-32"></textarea>
-
-      <button class="bg-brand text-white py-3 rounded-lg font-semibold">
-        Send Enquiry
-      </button>
-
-      <p id="formStatus" class="text-green-600"></p>
-    </form>
-  </div>
+<section id="contact" class="py-24 bg-green-900 text-white text-center fade-up">
+  <h2 class="text-4xl font-bold mb-6">Let’s Build Your Dream Garden</h2>
+  <p class="text-lg mb-10">verdanita@protonmail.com | +91 8075769756</p>
 </section>
 
 <footer class="bg-black text-gray-400 py-6 text-center">
 © 2026 Verdanita Landscaping. All Rights Reserved.
 </footer>
 
-<!-- WhatsApp -->
-<a href="https://wa.me/918075769756"
-   class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-WA
-</a>
-
-<!-- ✅ LOAD LOGO FROM site.json -->
+<!-- JSON LOADERS -->
 <script>
-fetch("assets/site.json")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("siteLogo").src = data.logo;
-  })
-  .catch(err => console.error("Logo load error:", err));
-</script>
-
-<!-- PROJECTS (STATIC DEMO) -->
-<script>
-const projectImages = [
-  "https://images.unsplash.com/photo-1763289466013-36fd9cca2519?w=800",
-  "https://plus.unsplash.com/premium_photo-1668930508685-af79c83e23af?w=800",
-  "https://images.unsplash.com/photo-1758696655075-8114e15306bd?w=800"
-];
-
-const projectGrid = document.getElementById("projectGrid");
-projectImages.forEach(img=>{
-  projectGrid.innerHTML += `
-    <img src="${img}" class="rounded-3xl shadow-lg w-full h-64 object-cover">
-  `;
+fetch("data/site.json")
+.then(r=>r.json())
+.then(d=>{
+  document.getElementById("siteLogo").src=d.logo;
 });
-</script>
 
-<!-- PRODUCTS JSON -->
-<script>
-let allProducts = [];
-
-fetch("assets/products.json")
-  .then(r => r.json())
-  .then(data => {
-    allProducts = data;
-    renderProducts("all");
+fetch("data/projects.json")
+.then(r=>r.json())
+.then(data=>{
+  const grid=document.getElementById("projectGrid");
+  data.forEach(img=>{
+    grid.innerHTML+=`
+      <img loading="lazy" src="${img}" class="rounded-3xl shadow-lg w-full h-64 object-cover">
+    `;
   });
+});
 
-function filterCategory(cat){
-  renderProducts(cat);
-}
-
-function renderProducts(cat){
-  const grid = document.getElementById("productGrid");
-  grid.innerHTML = "";
-
-  allProducts
-    .filter(p => cat === "all" || p.category === cat)
-    .forEach(p => {
-      grid.innerHTML += `
-        <div class="bg-white rounded-2xl shadow overflow-hidden">
-          <img src="${p.image}" class="w-full h-48 object-cover">
-          <div class="p-4 text-center font-semibold">${p.title}</div>
-        </div>
-      `;
-    });
-}
-</script>
-
-<!-- EMAILJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-emailjs.init("6rohzbSTh7BhllYdn");
-
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  emailjs.sendForm("service_x5sxxfn","template_499nycq",this)
-    .then(() => {
-      document.getElementById("formStatus").innerText = "Message sent successfully!";
-      this.reset();
-    })
-    .catch(() => {
-      document.getElementById("formStatus").innerText = "Error sending message";
-    });
+fetch("data/products.json")
+.then(r=>r.json())
+.then(data=>{
+  const grid=document.getElementById("productGrid");
+  data.forEach(p=>{
+    grid.innerHTML+=`
+      <div class="bg-white rounded-2xl shadow overflow-hidden">
+        <img loading="lazy" src="${p.image}" class="w-full h-48 object-cover">
+        <div class="p-4 text-center font-semibold">${p.title}</div>
+      </div>
+    `;
+  });
 });
 </script>
 
-<!-- AOS -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>AOS.init({once:true,duration:1200});</script>
+<!-- ANIMATION -->
+<script>
+const elements=document.querySelectorAll('.fade-up');
+function reveal(){
+  const trigger=window.innerHeight*0.85;
+  elements.forEach(el=>{
+    if(el.getBoundingClientRect().top<trigger){
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll',reveal);
+reveal();
+</script>
 
 </body>
 </html>
+
 
 
 
