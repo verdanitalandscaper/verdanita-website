@@ -9,13 +9,11 @@
 <meta name="description" content="Professional landscaping, garden design & paving solutions in Kerala.">
 
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Verdanita Landscaping | Garden Design & Paving">
+<meta property="og:title" content="Verdanita Landscaping">
 <meta property="og:description" content="Expert landscaping and paving solutions in Kerala.">
 <meta property="og:image" content="https://verdanitalandscaper.online/assets/images/preview.jpg">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://verdanitalandscaper.online">
 
-<!-- Local Business Schema -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -69,13 +67,12 @@ html { scroll-behavior:smooth }
     <a href="#services">Services</a>
     <a href="#projects">Projects</a>
     <a href="#products">Products</a>
-    <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- SERVICES -->
-<section id="services" class="py-24 bg-white fade-up text-center">
+<section id="services" class="py-24 bg-white text-center fade-up">
   <h2 class="text-4xl font-bold mb-10">Our Services</h2>
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-6">
     <div>
@@ -102,17 +99,28 @@ html { scroll-behavior:smooth }
 
 <!-- PRODUCTS -->
 <section id="products" class="py-24 bg-white fade-up">
-  <h2 class="text-4xl font-bold text-center mb-10">Our Products</h2>
+  <h2 class="text-4xl font-bold text-center mb-16">Our Products</h2>
 
-  <div class="flex justify-center gap-4 mb-10">
-    <button onclick="filterCategory('all')" class="px-4 py-2 bg-green-900 text-white rounded">All</button>
-    <button onclick="filterCategory('Tiles')" class="px-4 py-2 bg-gray-200 rounded">Tiles</button>
-    <button onclick="filterCategory('Pavers')" class="px-4 py-2 bg-gray-200 rounded">Pavers</button>
-    <button onclick="filterCategory('Garden')" class="px-4 py-2 bg-gray-200 rounded">Garden</button>
+  <!-- TILES -->
+  <div class="max-w-7xl mx-auto px-6 mb-20">
+    <h3 class="text-3xl font-bold mb-8 text-center">Tiles</h3>
+    <div id="tilesGrid"
+         class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
   </div>
 
-  <div id="productGrid"
-       class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-6"></div>
+  <!-- PAVERS -->
+  <div class="max-w-7xl mx-auto px-6 mb-20">
+    <h3 class="text-3xl font-bold mb-8 text-center">Paving Blocks</h3>
+    <div id="paversGrid"
+         class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+  </div>
+
+  <!-- GARDEN -->
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-bold mb-8 text-center">Garden & Maintenance</h3>
+    <div id="gardenGrid"
+         class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+  </div>
 </section>
 
 <!-- CONTACT -->
@@ -126,7 +134,9 @@ html { scroll-behavior:smooth }
       <input name="email" type="email" placeholder="Email" required class="p-3 border rounded">
       <input name="phone" placeholder="Phone" class="p-3 border rounded">
       <textarea name="message" placeholder="Message" required class="p-3 border rounded h-32"></textarea>
-      <button class="bg-green-900 text-white py-3 rounded font-semibold">Send Enquiry</button>
+      <button class="bg-green-900 text-white py-3 rounded font-semibold">
+        Send Enquiry
+      </button>
       <p id="formStatus" class="text-green-600"></p>
     </form>
   </div>
@@ -144,40 +154,39 @@ fetch("data/projects.json")
   const grid=document.getElementById("projectGrid");
   data.forEach(img=>{
     grid.innerHTML+=`
-      <img loading="lazy" src="${img}" class="rounded-3xl shadow-lg w-full h-64 object-cover">
+      <img loading="lazy" src="${img}"
+           class="rounded-3xl shadow-lg w-full h-64 object-cover">
     `;
   });
 });
 </script>
 
-<!-- LOAD PRODUCTS -->
+<!-- LOAD PRODUCTS BY CATEGORY -->
 <script>
-let allProducts=[];
 fetch("data/products.json")
 .then(r=>r.json())
-.then(data=>{
-  allProducts=data;
-  renderProducts("all");
-});
+.then(products=>{
 
-function filterCategory(cat){
-  renderProducts(cat);
-}
+  const tilesGrid = document.getElementById("tilesGrid");
+  const paversGrid = document.getElementById("paversGrid");
+  const gardenGrid = document.getElementById("gardenGrid");
 
-function renderProducts(cat){
-  const grid=document.getElementById("productGrid");
-  grid.innerHTML="";
-  allProducts
-  .filter(p=>cat==="all"||p.category===cat)
-  .forEach(p=>{
-    grid.innerHTML+=`
+  products.forEach(p => {
+
+    const card = `
       <div class="bg-white rounded-2xl shadow overflow-hidden">
-        <img loading="lazy" src="${p.image}" class="w-full h-48 object-cover">
+        <img loading="lazy" src="${p.image}"
+             class="w-full h-48 object-cover">
         <div class="p-4 text-center font-semibold">${p.title}</div>
       </div>
     `;
+
+    if(p.category === "Tiles") tilesGrid.innerHTML += card;
+    if(p.category === "Pavers") paversGrid.innerHTML += card;
+    if(p.category === "Garden") gardenGrid.innerHTML += card;
+
   });
-}
+});
 </script>
 
 <!-- EMAILJS -->
@@ -216,3 +225,4 @@ reveal();
 
 </body>
 </html>
+
