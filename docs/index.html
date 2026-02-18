@@ -210,7 +210,44 @@ We specialize in premium paving and natural stone craftsmanship, creating seamle
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-24 bg-brand text-white text-center">
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  emailjs.init("6rohzbSTh7BhllYdn"); // your public key
+
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_dutoz3i",
+      "template_7rucznj",
+      this
+    )
+    .then(function(){
+      status.innerText = "Message sent successfully!";
+      status.classList.remove("text-red-600");
+      status.classList.add("text-green-600");
+      form.reset();
+    })
+    .catch(function(error){
+      status.innerText = "Error sending message.";
+      status.classList.remove("text-green-600");
+      status.classList.add("text-red-600");
+      console.error(error);
+    });
+
+  });
+
+});
+</script>
+
+  <section id="contact" class="py-24 bg-brand text-white text-center">
   <div class="max-w-4xl mx-auto px-6">
     <h2 class="text-4xl font-bold mb-6">Let’s Build Your Dream Garden</h2>
     <p class="mb-8">📧 verdanita@protonmail.com | 📞 +91 8075769756</p>
@@ -275,4 +312,5 @@ function filterCategory(cat){
 
 </body>
 </html>
+
 
