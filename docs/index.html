@@ -108,7 +108,7 @@ html{scroll-behavior:smooth}
     <button onclick="filterCategory('all')" class="px-4 py-2 bg-brand text-white rounded">All</button>
     <button onclick="filterCategory('Tiles')" class="px-4 py-2 bg-gray-200 rounded">Tiles</button>
     <button onclick="filterCategory('Pavers')" class="px-4 py-2 bg-gray-200 rounded">Pavers</button>
-    <button onclick="filterCategory('Garden')" class="px-4 py-2 bg-gray-200 rounded">Garden</button>
+    <button onclick="filterCategory('Garden')" class="px-4 py-2 bg-gray-200 rounded">Garden/Maintenance </button>
   </div>
 
   <div id="productGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
@@ -128,7 +128,7 @@ html{scroll-behavior:smooth}
 <section id="contact" class="py-24 bg-brand text-white">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <h2 class="text-4xl font-bold mb-6">Let’s Build Your Dream Garden</h2>
-    <p class="text-lg mb-10">📧 verdanita@protonmail.com | 📞 +91 8075769756</p>
+    <p class="text-lg mb-10"> verdanita@protonmail.com | 📞 +91 8075769756</p>
 
     <form id="contactForm" class="bg-white text-black p-8 rounded-2xl shadow-lg grid gap-5">
       <input name="name" placeholder="Your Name" required class="p-4 border rounded-lg">
@@ -221,7 +221,7 @@ emailjs.init("6rohzbSTh7BhllYdn");
 document.getElementById("contactForm").addEventListener("submit", function(e){
   e.preventDefault();
 
-  emailjs.sendForm("service_dutoz3i","template_7rucznj",this)
+  emailjs.sendForm("service_x5sxxfn","template_499nycq",this)
     .then(() => {
       document.getElementById("formStatus").innerText = "Message sent successfully!";
       this.reset();
@@ -238,3 +238,4 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
 
 </body>
 </html>
+
