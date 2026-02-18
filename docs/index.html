@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Verdanita Landscaping | Premium Outdoor Solutions</title>
+<title>Verdanita Landscaping | Garden Design & Paving Solutions</title>
 <meta name="description" content="Professional landscaping, garden design & paving solutions.">
 
 <!-- Google Analytics -->
@@ -23,9 +23,7 @@ gtag('config', 'G-35KHEGZEYN');
 tailwind.config = {
   theme: {
     extend: {
-      colors: {
-        brand: '#163f22'
-      }
+      colors: { brand: '#163f22' }
     }
   }
 }
@@ -58,7 +56,7 @@ html { scroll-behavior: smooth; }
     <a href="#services">Services</a>
     <a href="#who">Who We Are</a>
     <a href="#about">About</a>
-    <a href="#process">Process</a>
+    <a href="#process">Our Process</a>
     <a href="#projects">Projects</a>
     <a href="#products">Products</a>
     <a href="#contact">Contact</a>
@@ -71,15 +69,15 @@ html { scroll-behavior: smooth; }
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-6">
     <div>
       <h3 class="text-2xl font-bold mb-4">Garden Designing</h3>
-      <p>Custom garden layouts combining sustainability and elegance.</p>
+      <p>Custom garden layouts with sustainable plant planning.</p>
     </div>
     <div>
       <h3 class="text-2xl font-bold mb-4">Landscaping</h3>
-      <p>Complete outdoor space development & structural planning.</p>
+      <p>Complete outdoor development & architectural green planning.</p>
     </div>
     <div>
       <h3 class="text-2xl font-bold mb-4">Paving Solutions</h3>
-      <p>Premium paving block & natural stone installations.</p>
+      <p>Professional paving block & stone installations.</p>
     </div>
   </div>
 </section>
@@ -90,8 +88,8 @@ html { scroll-behavior: smooth; }
     <div>
       <h2 class="text-4xl font-bold mb-6 text-brand">Who We Are</h2>
       <p class="text-lg mb-4">
-        Verdanita Landscaping is a premium outdoor design company specializing
-        in garden architecture, paving solutions and sustainable execution.
+        Verdanita Landscaping is a premium outdoor design and development company
+        specializing in garden architecture, paving solutions, and sustainable execution.
       </p>
       <p class="text-lg">
         We transform residential and commercial spaces into elegant green environments.
@@ -99,7 +97,8 @@ html { scroll-behavior: smooth; }
     </div>
     <div>
       <img src="assets/preview.jpg"
-           class="rounded-3xl shadow-lg w-full object-cover">
+           class="rounded-3xl shadow-lg w-full object-cover"
+           alt="Landscape Work">
     </div>
   </div>
 </section>
@@ -109,16 +108,17 @@ html { scroll-behavior: smooth; }
   <div class="max-w-5xl mx-auto px-6">
     <h2 class="text-4xl font-bold mb-8 text-brand">About Verdanita</h2>
     <p class="text-lg mb-6">
-      Founded with a vision to redefine outdoor living, Verdanita creates
-      harmonious landscapes connecting nature with modern design.
+      Founded with a vision to redefine outdoor living, Verdanita focuses on
+      creating harmonious spaces that connect nature with modern design.
     </p>
     <p class="text-lg">
-      Every outdoor space has potential — and we bring that vision to life.
+      Every outdoor space has potential — and we bring that vision to life
+      with precision craftsmanship and premium materials.
     </p>
   </div>
 </section>
 
-<!-- PROCESS -->
+<!-- OUR PROCESS -->
 <section id="process" class="py-24 bg-gray-100 text-center">
   <h2 class="text-4xl font-bold mb-16 text-brand">Our Process</h2>
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-6">
@@ -128,7 +128,7 @@ html { scroll-behavior: smooth; }
     </div>
     <div class="bg-white p-8 rounded-2xl shadow">
       <h3 class="text-xl font-bold mb-4">2. Design & Planning</h3>
-      <p>Detailed layout and material planning.</p>
+      <p>Detailed layout planning and material selection.</p>
     </div>
     <div class="bg-white p-8 rounded-2xl shadow">
       <h3 class="text-xl font-bold mb-4">3. Execution</h3>
@@ -149,54 +149,80 @@ html { scroll-behavior: smooth; }
   <h2 class="text-4xl font-bold text-center mb-16 text-brand">
     Garden Elements & Paving Products
   </h2>
+
   <div id="productGrid"
        class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-6"></div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="py-24 bg-brand text-white text-center">
-  <h2 class="text-4xl font-bold mb-6">Let’s Build Your Dream Garden</h2>
-  <p>📧 verdanita@protonmail.com | 📞 +91 8075769756</p>
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-6">Let’s Build Your Dream Garden</h2>
+    <p class="mb-8">📧 verdanita@protonmail.com | 📞 +91 8075769756</p>
+
+    <form id="contactForm" class="bg-white text-black p-8 rounded-2xl shadow-lg grid gap-5">
+      <input name="name" placeholder="Your Name" required class="p-4 border rounded-lg">
+      <input name="email" type="email" placeholder="Email" required class="p-4 border rounded-lg">
+      <textarea name="message" placeholder="Message" required class="p-4 border rounded-lg h-32"></textarea>
+      <button class="bg-brand text-white py-3 rounded-lg font-semibold">Send Enquiry</button>
+      <p id="formStatus" class="mt-2"></p>
+    </form>
+  </div>
 </section>
 
 <footer class="bg-black text-gray-400 py-6 text-center">
-© 2026 Verdanita Landscaping
+© 2026 Verdanita Landscaping. All Rights Reserved.
 </footer>
 
-<!-- DATA LOADING -->
+<!-- WhatsApp -->
+<a href="https://wa.me/918075769756"
+class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
+WA
+</a>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
-fetch("data/site.json")
-.then(r=>r.json())
-.then(d=>{
-document.getElementById("siteLogo").src = d.logo || "assets/verdanita-logo-white.png";
-})
-.catch(()=>{
-document.getElementById("siteLogo").src = "assets/verdanita-logo-white.png";
-});
+  /* LOGO */
+  fetch("data/site.json")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("siteLogo").src =
+      data.logo || "assets/verdanita-logo-white.png";
+  })
+  .catch(() => {
+    document.getElementById("siteLogo").src =
+      "assets/verdanita-logo-white.png";
+  });
 
-fetch("data/projects.json")
-.then(r=>r.json())
-.then(data=>{
-const grid=document.getElementById("projectGrid");
-data.forEach(img=>{
-grid.innerHTML+=`<img src="${img}" class="rounded-3xl shadow-lg w-full h-64 object-cover">`;
-});
-});
+  /* EMAILJS INIT */
+  emailjs.init("6rohzbSTh7BhllYdn");
 
-fetch("data/products.json")
-.then(r=>r.json())
-.then(data=>{
-const grid=document.getElementById("productGrid");
-data.forEach(p=>{
-grid.innerHTML+=`
-<div class="bg-white rounded-2xl shadow overflow-hidden">
-<img src="${p.image}" class="w-full h-48 object-cover">
-<div class="p-4 text-center font-semibold">${p.title}</div>
-</div>`;
-});
-});
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_x5sxxfn",
+      "template_499nycq",
+      this
+    )
+    .then(() => {
+      status.innerText = "Message sent successfully!";
+      status.className = "text-green-600";
+      form.reset();
+    })
+    .catch(error => {
+      status.innerText = "Error sending message.";
+      status.className = "text-red-600";
+      console.error(error);
+    });
+  });
 
 });
 </script>
