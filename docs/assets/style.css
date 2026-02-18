@@ -1,0 +1,99 @@
+/* ===== GLOBAL ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ===== HERO ANIMATIONS ===== */
+
+/* Background cinematic zoom */
+.hero-zoom {
+  animation: zoomEffect 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomEffect {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* Overlay fade animation */
+.fade-overlay {
+  animation: fadeInOverlay 2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInOverlay {
+  to { opacity: 1; }
+}
+
+/* Logo fade-in */
+.fade-logo {
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Slide up animation */
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 1.2s ease forwards;
+}
+
+.slide-up.delay-1 { animation-delay: 1s; }
+.slide-up.delay-2 { animation-delay: 1.5s; }
+.slide-up.delay-3 { animation-delay: 2s; }
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CTA hover animation */
+.cta-btn {
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* ===== SECTION FADE EFFECT ===== */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+<script>
+const elements = document.querySelectorAll('.fade-up');
+
+function reveal(){
+  const trigger = window.innerHeight * 0.85;
+  elements.forEach(el=>{
+    if(el.getBoundingClientRect().top < trigger){
+      el.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', reveal);
+reveal();
+</script>
