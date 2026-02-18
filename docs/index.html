@@ -13,31 +13,25 @@
 <meta property="og:image" content="https://verdanitalandscaper.online/assets/preview.jpg">
 <meta property="og:type" content="website">
 
-<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
-
-<!-- External CSS -->
 <link rel="stylesheet" href="assets/style.css">
 
 </head>
-
 <body class="bg-gray-100 text-gray-800">
 
 <!-- HERO -->
 <header class="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
 
   <img src="assets/hero.jpg"
-       alt="Luxury Garden Landscaping"
        class="absolute inset-0 w-full h-full object-cover hero-zoom"
        loading="eager">
 
-  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80 fade-overlay"></div>
+  <div class="absolute inset-0 bg-black/70 fade-overlay"></div>
 
   <div class="relative z-10 text-center px-6 max-w-4xl">
 
     <img src="assets/verdanita-logo-white.png"
-         class="mx-auto w-52 mb-8 fade-logo"
-         alt="Verdanita Logo">
+         class="mx-auto w-52 mb-8 fade-logo">
 
     <h1 class="text-4xl md:text-6xl font-bold mb-6 slide-up delay-1">
       Transforming Outdoor Spaces
@@ -47,29 +41,113 @@
       Garden Design • Paving Blocks • Green Spaces
     </p>
 
-    <a href="#contact"
+    <a href="#products"
        class="inline-block bg-green-700 hover:bg-green-800 px-10 py-4 rounded-lg font-semibold cta-btn slide-up delay-3">
-       Get Free Consultation
+       View Products
     </a>
 
   </div>
-
 </header>
+
+
+<!-- PROJECTS -->
+<section id="projects" class="py-24 bg-white fade-up">
+  <h2 class="text-4xl font-bold text-center mb-16">Featured Projects</h2>
+
+  <div id="projectGrid"
+       class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
+  </div>
+</section>
+
+
+<!-- PRODUCTS -->
+<section id="products" class="py-24 bg-gray-100 fade-up">
+
+  <h2 class="text-4xl font-bold text-center mb-16">
+    Garden Elements & Paving Products
+  </h2>
+
+  <div class="flex justify-center gap-4 mb-10">
+    <button onclick="filterCategory('all')" class="px-4 py-2 bg-green-700 text-white rounded">All</button>
+    <button onclick="filterCategory('Tiles')" class="px-4 py-2 bg-gray-200 rounded">Tiles</button>
+    <button onclick="filterCategory('Pavers')" class="px-4 py-2 bg-gray-200 rounded">Pavers</button>
+    <button onclick="filterCategory('Garden')" class="px-4 py-2 bg-gray-200 rounded">Garden</button>
+  </div>
+
+  <div id="productGrid"
+       class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-6">
+  </div>
+
+</section>
+
 
 <!-- CONTACT -->
 <section id="contact" class="py-24 bg-white text-center fade-up">
   <h2 class="text-4xl font-bold mb-6">Contact Verdanita</h2>
   <p class="text-lg text-gray-600 mb-4">
-    Let’s build your dream garden today.
-  </p>
-  <p class="text-lg font-semibold">
     📞 +91 8075769756 <br>
     ✉ verdanita@protonmail.com
   </p>
 </section>
 
-<!-- Scroll animation JS -->
+
+
+<!-- ================================
+     JAVASCRIPT SECTION
+================================ -->
+
 <script>
+
+/* ========= PROJECTS LOAD ========= */
+
+fetch("data/projects.json")
+  .then(res => res.json())
+  .then(data => {
+    const grid = document.getElementById("projectGrid");
+    data.forEach(img => {
+      grid.innerHTML += `
+        <img src="${img}"
+             loading="lazy"
+             class="rounded-3xl shadow-lg w-full h-64 object-cover">
+      `;
+    });
+  });
+
+
+/* ========= PRODUCTS LOAD ========= */
+
+let allProducts = [];
+
+fetch("data/products.json")
+  .then(res => res.json())
+  .then(data => {
+    allProducts = data;
+    renderProducts("all");
+  });
+
+function renderProducts(category){
+  const grid = document.getElementById("productGrid");
+  grid.innerHTML = "";
+
+  allProducts
+    .filter(p => category === "all" || p.category === category)
+    .forEach(p => {
+      grid.innerHTML += `
+        <div class="bg-white rounded-2xl shadow overflow-hidden">
+          <img src="${p.image}" class="w-full h-48 object-cover">
+          <div class="p-4 text-center font-semibold">${p.title}</div>
+        </div>
+      `;
+    });
+}
+
+function filterCategory(cat){
+  renderProducts(cat);
+}
+
+
+/* ========= SCROLL FADE ========= */
+
 const elements = document.querySelectorAll('.fade-up');
 
 function reveal(){
@@ -83,10 +161,8 @@ function reveal(){
 
 window.addEventListener('scroll', reveal);
 reveal();
+
 </script>
 
 </body>
 </html>
-
-
-
