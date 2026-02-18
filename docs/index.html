@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="assets/style.css">
 
 </head>
+
 <body class="bg-gray-100 text-gray-800">
 
 <!-- HERO -->
@@ -24,14 +25,15 @@
 
   <img src="assets/hero.jpg"
        class="absolute inset-0 w-full h-full object-cover hero-zoom"
-       loading="eager">
+       alt="Verdanita Landscaping">
 
   <div class="absolute inset-0 bg-black/70 fade-overlay"></div>
 
   <div class="relative z-10 text-center px-6 max-w-4xl">
 
     <img src="assets/verdanita-logo-white.png"
-         class="mx-auto w-52 mb-8 fade-logo">
+         class="mx-auto w-52 mb-8 fade-logo"
+         alt="Verdanita Logo">
 
     <h1 class="text-4xl md:text-6xl font-bold mb-6 slide-up delay-1">
       Transforming Outdoor Spaces
@@ -84,26 +86,31 @@
 <!-- CONTACT -->
 <section id="contact" class="py-24 bg-white text-center fade-up">
   <h2 class="text-4xl font-bold mb-6">Contact Verdanita</h2>
-  <p class="text-lg text-gray-600 mb-4">
+  <p class="text-lg text-gray-600">
     📞 +91 8075769756 <br>
     ✉ verdanita@protonmail.com
   </p>
 </section>
 
 
-
-<!-- ================================
-     JAVASCRIPT SECTION
+<!-- =============================
+     JAVASCRIPT (SAFE VERSION)
 ================================ -->
 
 <script>
 
-/* ========= PROJECTS LOAD ========= */
+/* ---------- LOAD PROJECTS ---------- */
+async function loadProjects() {
+  try {
+    const res = await fetch("data/projects.json");
+    if (!res.ok) throw new Error("Projects file not found");
 
-fetch("data/projects.json")
-  .then(res => res.json())
-  .then(data => {
+    const data = await res.json();
+    if (!Array.isArray(data)) throw new Error("Projects JSON must be array");
+
     const grid = document.getElementById("projectGrid");
+    grid.innerHTML = "";
+
     data.forEach(img => {
       grid.innerHTML += `
         <img src="${img}"
@@ -111,21 +118,33 @@ fetch("data/projects.json")
              class="rounded-3xl shadow-lg w-full h-64 object-cover">
       `;
     });
-  });
+
+  } catch (err) {
+    console.error("Projects Error:", err);
+  }
+}
 
 
-/* ========= PRODUCTS LOAD ========= */
-
+/* ---------- LOAD PRODUCTS ---------- */
 let allProducts = [];
 
-fetch("data/products.json")
-  .then(res => res.json())
-  .then(data => {
+async function loadProducts() {
+  try {
+    const res = await fetch("data/products.json");
+    if (!res.ok) throw new Error("Products file not found");
+
+    const data = await res.json();
+    if (!Array.isArray(data)) throw new Error("Products JSON must be array");
+
     allProducts = data;
     renderProducts("all");
-  });
 
-function renderProducts(category){
+  } catch (err) {
+    console.error("Products Error:", err);
+  }
+}
+
+function renderProducts(category) {
   const grid = document.getElementById("productGrid");
   grid.innerHTML = "";
 
@@ -141,28 +160,37 @@ function renderProducts(category){
     });
 }
 
-function filterCategory(cat){
+function filterCategory(cat) {
   renderProducts(cat);
 }
 
 
-/* ========= SCROLL FADE ========= */
+/* ---------- SCROLL FADE ---------- */
+function initScrollAnimation() {
+  const elements = document.querySelectorAll('.fade-up');
 
-const elements = document.querySelectorAll('.fade-up');
+  function reveal() {
+    const trigger = window.innerHeight * 0.85;
+    elements.forEach(el => {
+      if (el.getBoundingClientRect().top < trigger) {
+        el.classList.add('visible');
+      }
+    });
+  }
 
-function reveal(){
-  const trigger = window.innerHeight * 0.85;
-  elements.forEach(el=>{
-    if(el.getBoundingClientRect().top < trigger){
-      el.classList.add('visible');
-    }
-  });
+  window.addEventListener('scroll', reveal);
+  reveal();
 }
 
-window.addEventListener('scroll', reveal);
-reveal();
+
+/* ---------- INIT ---------- */
+loadProjects();
+loadProducts();
+initScrollAnimation();
 
 </script>
 
 </body>
 </html>
+
+
