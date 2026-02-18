@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdanita Media Admin</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-6">
+
+<!-- LOGIN -->
+<div id="loginBox" class="max-w-md mx-auto bg-white p-8 rounded-xl shadow">
+  <h2 class="text-2xl font-bold mb-6">Admin Login</h2>
+  <input id="password" type="password"
+         placeholder="Enter password"
+         class="w-full p-3 border rounded mb-4">
+  <button onclick="login()"
+          class="w-full bg-green-700 text-white py-3 rounded font-semibold">
+    Login
+  </button>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel" class="hidden max-w-5xl mx-auto bg-white p-8 rounded-xl shadow">
+
+  <h1 class="text-3xl font-bold mb-8">Media Manager</h1>
+
+  <!-- LOGO -->
+  <div class="mb-10">
+    <h2 class="text-xl font-bold mb-3">Logo</h2>
+
+    <input id="logoPath"
+           placeholder="Logo path (assets/logo.png)"
+           class="p-3 border rounded w-full mb-3">
+
+    <button onclick="saveLogo()"
+            class="bg-green-700 text-white px-6 py-3 rounded font-semibold">
+      Save Logo Path
+    </button>
+  </div>
+
+  <hr class="my-10">
+
+  <!-- PROJECTS -->
+  <h2 class="text-xl font-bold mb-4">Projects</h2>
+
+  <div class="grid md:grid-cols-2 gap-4 mb-6">
+    <input id="projectImage"
+           placeholder="Image path (assets/projects/...)"
+           class="p-3 border rounded">
+    <button onclick="addProject()"
+            class="bg-green-700 text-white rounded font-semibold">
+      Add Project
+    </button>
+  </div>
+
+  <div id="projectList" class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10"></div>
+
+  <!-- EXPORT -->
+  <div class="flex gap-4">
+    <button onclick="exportProjects()"
+            class="bg-blue-700 text-white px-6 py-3 rounded font-semibold">
+      Download projects.json
+    </button>
+
+    <button onclick="exportSite()"
+            class="bg-blue-700 text-white px-6 py-3 rounded font-semibold">
+      Download site.json
+    </button>
+  </div>
+
+  <p class="text-sm text-gray-500 mt-4">
+    Upload JSON files to <b>/data/</b> and images to <b>/assets/</b>
+  </p>
+</div>
+
+<script>
+const ADMIN_PASSWORD = "verdanita123";
+let projects = [];
+let logo = "assets/logo.png";
+
+/* LOGIN */
+function login(){
+  if(password.value === ADMIN_PASSWORD){
+    loginBox.classList.add("hidden");
+    adminPanel.classList.remove("hidden");
+    renderProjects();
+  } else alert("Wrong password");
+}
+
+/* LOGO */
+function saveLogo(){
+  logo = logoPath.value || "assets/logo.png";
+  alert("Logo path saved");
+}
+
+/* PROJECTS */
+function addProject(){
+  if(!projectImage.value) return alert("Enter image path");
+  projects.push(projectImage.value);
+  projectImage.value = "";
+  renderProjects();
+}
+
+function removeProject(i){
+  projects.splice(i,1);
+  renderProjects();
+}
+
+function renderProjects(){
+  projectList.innerHTML = "";
+  projects.forEach((img,i)=>{
+    projectList.innerHTML += `
+      <div class="relative">
+        <img src="${img}" class="rounded-lg h-32 w-full object-cover"
+             onerror="this.src='https://via.placeholder.com/300x200?text=Image'">
+        <button onclick="removeProject(${i})"
+                class="absolute top-2 right-2 bg-red-600 text-white px-2 rounded">
+          ✕
+        </button>
+      </div>`;
+  });
+}
+
+/* EXPORT JSON */
+function exportProjects(){
+  downloadJSON("projects.json", projects);
+}
+
+function exportSite(){
+  downloadJSON("site.json", { logo });
+}
+
+function downloadJSON(name, data){
+  const blob = new Blob([JSON.stringify(data,null,2)],
+                        {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  a.click();
+}
+</script>
+
+</body>
+</html>
+
