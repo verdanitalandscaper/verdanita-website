@@ -136,3 +136,19 @@ html { scroll-behavior: smooth; }
 
 </body>
 </html>
+<script>
+const elements = document.querySelectorAll('.fade-up');
+
+function reveal(){
+  const trigger = window.innerHeight * 0.85;
+  elements.forEach(el=>{
+    if(el.getBoundingClientRect().top < trigger){
+      el.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', reveal);
+reveal();
+</script>
+
