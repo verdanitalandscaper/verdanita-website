@@ -20,9 +20,6 @@ gtag('config', 'G-35KHEGZEYN');
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- AOS -->
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
 <script>
 tailwind.config = {
   theme: {
@@ -35,6 +32,9 @@ tailwind.config = {
   }
 }
 </script>
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
 html { scroll-behavior: smooth; }
@@ -51,10 +51,8 @@ html { scroll-behavior: smooth; }
   <div class="absolute inset-0 bg-black/70"></div>
 
   <div class="relative z-10 text-center px-6" data-aos="fade-up">
-    <img id="siteLogo"
-         class="mx-auto w-60 mb-6"
-         alt="Verdanita Logo">
-
+    <img id="siteLogo" class="mx-auto w-60 mb-6" alt="Verdanita Logo">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Transforming Outdoor Spaces</h1>
     <p class="text-xl text-gray-200 font-semibold">
       Garden Design • Paving Blocks • Green Spaces
     </p>
@@ -66,6 +64,7 @@ html { scroll-behavior: smooth; }
   <div class="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-6 py-4 font-semibold">
     <a href="#home">Home</a>
     <a href="#services">Services</a>
+    <a href="#who-we-are">Who We Are</a>
     <a href="#projects">Projects</a>
     <a href="#products">Products</a>
     <a href="#contact">Contact</a>
@@ -73,63 +72,131 @@ html { scroll-behavior: smooth; }
 </nav>
 
 <!-- SERVICES -->
-<section id="services" class="py-24 bg-white">
-  <div class="max-w-6xl mx-auto px-6 space-y-16">
+<section id="services" class="py-24 bg-white text-center">
+  <h2 class="text-4xl font-bold mb-12 text-brand">Our Services</h2>
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-6">
     <div>
-      <h2 class="text-4xl font-bold mb-4">Garden Designing</h2>
-      <p class="text-lg text-gray-700">Custom garden layouts with sustainable plant selection.</p>
+      <h3 class="text-2xl font-bold mb-4">Garden Designing</h3>
+      <p>Custom garden layouts with sustainable plant selection and premium finishing.</p>
     </div>
     <div>
-      <h2 class="text-4xl font-bold mb-4">Landscaping</h2>
-      <p class="text-lg text-gray-700">Complete outdoor development and execution.</p>
+      <h3 class="text-2xl font-bold mb-4">Landscaping</h3>
+      <p>Complete outdoor space development and architectural green planning.</p>
     </div>
     <div>
-      <h2 class="text-4xl font-bold mb-4">Paving Solutions</h2>
-      <p class="text-lg text-gray-700">Professional paving block installation.</p>
+      <h3 class="text-2xl font-bold mb-4">Paving Solutions</h3>
+      <p>Professional paving block and stone installations with long-lasting durability.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section id="who-we-are" class="py-24 bg-gray-100">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <h2 class="text-4xl font-bold mb-6 text-brand">Who We Are</h2>
+      <p class="text-lg mb-4">
+        Verdanita Landscaping is a premium outdoor design and development company
+        specializing in garden architecture, paving solutions, and sustainable landscape execution.
+      </p>
+      <p class="text-lg">
+        We transform residential and commercial spaces into elegant green environments
+        combining beauty and functionality.
+      </p>
+    </div>
+    <div>
+      <img src="assets/preview.jpg"
+           class="rounded-3xl shadow-lg w-full object-cover"
+           alt="Verdanita Landscape Work">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 bg-white text-center">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-8 text-brand">About Verdanita</h2>
+    <p class="text-lg mb-6">
+      Founded with a vision to redefine outdoor living, Verdanita focuses on
+      creating harmonious spaces that connect nature with modern design.
+    </p>
+    <p class="text-lg mb-6">
+      Our expertise spans across garden planning, hardscaping, paving block installations,
+      stone solutions, and long-term landscape maintenance.
+    </p>
+    <p class="text-lg">
+      We believe every outdoor space has potential — and we bring that vision to life
+      with precision craftsmanship and premium materials.
+    </p>
+  </div>
+</section>
+
+<!-- OUR PROCESS -->
+<section id="process" class="py-24 bg-gray-100">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-16 text-brand">Our Process</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-white p-8 rounded-2xl shadow">
+        <h3 class="text-xl font-bold mb-4">1. Consultation</h3>
+        <p>Understanding your vision and space requirements.</p>
+      </div>
+      <div class="bg-white p-8 rounded-2xl shadow">
+        <h3 class="text-xl font-bold mb-4">2. Design & Planning</h3>
+        <p>Detailed layout planning and material selection.</p>
+      </div>
+      <div class="bg-white p-8 rounded-2xl shadow">
+        <h3 class="text-xl font-bold mb-4">3. Execution</h3>
+        <p>Professional implementation with precision craftsmanship.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="py-24 bg-white">
-  <h2 class="text-4xl font-bold text-center mb-16">Featured Projects</h2>
+  <h2 class="text-4xl font-bold text-center mb-16 text-brand">Featured Projects</h2>
   <div id="projectGrid"
        class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6"></div>
 </section>
 
 <!-- PRODUCTS -->
-<section id="products" class="py-24 max-w-7xl mx-auto px-6">
-  <h2 class="text-4xl font-bold text-center mb-16">Garden Elements & Paving Products</h2>
+<section id="products" class="py-24 bg-gray-100">
+  <h2 class="text-4xl font-bold text-center mb-16 text-brand">
+    Garden Elements & Paving Products
+  </h2>
 
   <div class="flex justify-center gap-4 mb-10">
     <button onclick="filterCategory('all')" class="px-4 py-2 bg-brand text-white rounded">All</button>
-    <button onclick="filterCategory('Tiles')" class="px-4 py-2 bg-gray-200 rounded">Tiles</button>
-    <button onclick="filterCategory('Pavers')" class="px-4 py-2 bg-gray-200 rounded">Pavers</button>
-    <button onclick="filterCategory('Garden')" class="px-4 py-2 bg-gray-200 rounded">Garden</button>
+    <button onclick="filterCategory('Tiles')" class="px-4 py-2 bg-white border rounded">Tiles</button>
+    <button onclick="filterCategory('Pavers')" class="px-4 py-2 bg-white border rounded">Pavers</button>
+    <button onclick="filterCategory('Garden')" class="px-4 py-2 bg-white border rounded">Garden</button>
   </div>
 
   <div id="productGrid"
-       class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+       class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-6"></div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 bg-brand text-white text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-6">
+      Ready to Transform Your Outdoor Space?
+    </h2>
+    <p class="text-lg mb-8">
+      Let Verdanita bring your landscape vision to life.
+    </p>
+    <a href="#contact"
+       class="bg-white text-brand px-8 py-4 rounded-lg font-semibold hover:bg-gray-200 transition">
+      Get Started Today
+    </a>
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-24 bg-brand text-white">
-  <div class="max-w-4xl mx-auto px-6 text-center">
+<section id="contact" class="py-24 bg-brand text-white text-center">
+  <div class="max-w-4xl mx-auto px-6">
     <h2 class="text-4xl font-bold mb-6">Let’s Build Your Dream Garden</h2>
-    <p class="text-lg mb-10">📧 verdanita@protonmail.com | 📞 +91 8075769756</p>
-
-    <form id="contactForm" class="bg-white text-black p-8 rounded-2xl shadow-lg grid gap-5">
-      <input name="name" placeholder="Your Name" required class="p-4 border rounded-lg">
-      <input name="email" type="email" placeholder="Email" required class="p-4 border rounded-lg">
-      <input name="phone" placeholder="Phone" class="p-4 border rounded-lg">
-      <textarea name="message" placeholder="Message" class="p-4 border rounded-lg h-32"></textarea>
-
-      <button class="bg-brand text-white py-3 rounded-lg font-semibold">
-        Send Enquiry
-      </button>
-
-      <p id="formStatus" class="text-green-600"></p>
-    </form>
+    <p class="mb-8">📧 verdanita@protonmail.com | 📞 +91 8075769756</p>
   </div>
 </section>
 
@@ -139,50 +206,39 @@ html { scroll-behavior: smooth; }
 
 <!-- WhatsApp -->
 <a href="https://wa.me/918075769756"
-   class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
+class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
 WA
 </a>
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- ================= JS ================= -->
 
 <script>
-
-/* LOAD LOGO */
 fetch("data/site.json")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("siteLogo").src = data.logo;
-  })
-  .catch(err => console.error("Logo load error:", err));
+.then(res => res.json())
+.then(data => {
+  document.getElementById("siteLogo").src = data.logo;
+});
 
-/* LOAD PROJECTS */
 fetch("data/projects.json")
-  .then(res => res.json())
-  .then(data => {
-    const grid = document.getElementById("projectGrid");
-    data.forEach(img => {
-      grid.innerHTML += `
-        <img src="${img}" class="rounded-3xl shadow-lg w-full h-64 object-cover">
-      `;
-    });
-  })
-  .catch(err => console.error("Projects error:", err));
+.then(res => res.json())
+.then(data => {
+  const grid = document.getElementById("projectGrid");
+  data.forEach(img => {
+    grid.innerHTML += `<img src="${img}" class="rounded-3xl shadow-lg w-full h-64 object-cover">`;
+  });
+});
 
-/* LOAD PRODUCTS */
 let allProducts = [];
-
 fetch("data/products.json")
-  .then(res => res.json())
-  .then(data => {
-    allProducts = data;
-    renderProducts("all");
-  })
-  .catch(err => console.error("Products error:", err));
+.then(res => res.json())
+.then(data => {
+  allProducts = data;
+  renderProducts("all");
+});
 
 function renderProducts(cat){
   const grid = document.getElementById("productGrid");
   grid.innerHTML = "";
-
   allProducts
     .filter(p => cat === "all" || p.category === cat)
     .forEach(p => {
@@ -198,30 +254,7 @@ function renderProducts(cat){
 function filterCategory(cat){
   renderProducts(cat);
 }
-
 </script>
-
-<!-- EMAILJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-emailjs.init("6rohzbSTh7BhllYdn");
-
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  emailjs.sendForm("service_dutoz3i","template_7rucznj",this)
-    .then(() => {
-      document.getElementById("formStatus").innerText = "Message sent successfully!";
-      this.reset();
-    })
-    .catch(() => {
-      document.getElementById("formStatus").innerText = "Error sending message";
-    });
-});
-</script>
-
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>AOS.init({once:true,duration:1200});</script>
 
 </body>
 </html>
