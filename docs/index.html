@@ -88,8 +88,8 @@ html { scroll-behavior: smooth; }
     <div>
       <h2 class="text-4xl font-bold mb-6 text-brand">Who We Are</h2>
       <p class="text-lg mb-4">
-        Verdanita Landscaping is a premium outdoor design and development company
-        specializing in garden architecture, paving solutions, and sustainable execution.
+        Verdanita Landscaping is a premium outdoor design company
+        specializing in sustainable garden architecture and paving solutions.
       </p>
       <p class="text-lg">
         We transform residential and commercial spaces into elegant green environments.
@@ -108,12 +108,11 @@ html { scroll-behavior: smooth; }
   <div class="max-w-5xl mx-auto px-6">
     <h2 class="text-4xl font-bold mb-8 text-brand">About Verdanita</h2>
     <p class="text-lg mb-6">
-      Founded with a vision to redefine outdoor living, Verdanita focuses on
-      creating harmonious spaces that connect nature with modern design.
+      Founded with a vision to redefine outdoor living, Verdanita creates
+      harmonious landscapes connecting nature with modern design.
     </p>
     <p class="text-lg">
-      Every outdoor space has potential — and we bring that vision to life
-      with precision craftsmanship and premium materials.
+      Every outdoor space has potential — and we bring that vision to life.
     </p>
   </div>
 </section>
@@ -128,7 +127,7 @@ html { scroll-behavior: smooth; }
     </div>
     <div class="bg-white p-8 rounded-2xl shadow">
       <h3 class="text-xl font-bold mb-4">2. Design & Planning</h3>
-      <p>Detailed layout planning and material selection.</p>
+      <p>Detailed layout and material planning.</p>
     </div>
     <div class="bg-white p-8 rounded-2xl shadow">
       <h3 class="text-xl font-bold mb-4">3. Execution</h3>
@@ -149,7 +148,6 @@ html { scroll-behavior: smooth; }
   <h2 class="text-4xl font-bold text-center mb-16 text-brand">
     Garden Elements & Paving Products
   </h2>
-
   <div id="productGrid"
        class="max-w-7xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-6"></div>
 </section>
@@ -192,19 +190,36 @@ document.addEventListener("DOMContentLoaded", function(){
   .then(data => {
     document.getElementById("siteLogo").src =
       data.logo || "assets/verdanita-logo-white.png";
-  })
-  .catch(() => {
-    document.getElementById("siteLogo").src =
-      "assets/verdanita-logo-white.png";
   });
 
-  /* EMAILJS INIT */
+  /* PROJECTS */
+  fetch("data/projects.json")
+  .then(res => res.json())
+  .then(data => {
+    const grid = document.getElementById("projectGrid");
+    data.forEach(img => {
+      grid.innerHTML += `<img src="${img}" class="rounded-3xl shadow-lg w-full h-64 object-cover">`;
+    });
+  });
+
+  /* PRODUCTS */
+  fetch("data/products.json")
+  .then(res => res.json())
+  .then(data => {
+    const grid = document.getElementById("productGrid");
+    data.forEach(p => {
+      grid.innerHTML += `
+        <div class="bg-white rounded-2xl shadow overflow-hidden">
+          <img src="${p.image}" class="w-full h-48 object-cover">
+          <div class="p-4 text-center font-semibold">${p.title}</div>
+        </div>`;
+    });
+  });
+
+  /* EMAILJS */
   emailjs.init("6rohzbSTh7BhllYdn");
 
-  const form = document.getElementById("contactForm");
-  const status = document.getElementById("formStatus");
-
-  form.addEventListener("submit", function(e){
+  document.getElementById("contactForm").addEventListener("submit", function(e){
     e.preventDefault();
 
     emailjs.sendForm(
@@ -213,13 +228,11 @@ document.addEventListener("DOMContentLoaded", function(){
       this
     )
     .then(() => {
-      status.innerText = "Message sent successfully!";
-      status.className = "text-green-600";
-      form.reset();
+      document.getElementById("formStatus").innerText = "Message sent successfully!";
+      this.reset();
     })
     .catch(error => {
-      status.innerText = "Error sending message.";
-      status.className = "text-red-600";
+      document.getElementById("formStatus").innerText = "Error sending message.";
       console.error(error);
     });
   });
@@ -229,3 +242,5 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </body>
 </html>
+
+
