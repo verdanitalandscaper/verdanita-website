@@ -8,6 +8,9 @@
 <title>Verdanita Landscaping | Garden Design & Paving Solutions</title>
 <meta name="description" content="Professional landscaping, garden design & paving solutions.">
 
+<!-- Facebook Domain Verification -->
+<meta name="facebook-domain-verification" content="5i2lckajk4zywec69q4x6g3gqdbfe1" />
+
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-35KHEGZEYN"></script>
 <script>
@@ -33,7 +36,6 @@ tailwind.config = {
 <style>
 html { scroll-behavior: smooth; }
 
-/* Improve mobile hero */
 @media(max-width:768px){
 header h1{
 font-size:32px;
@@ -149,7 +151,7 @@ green environments that balance nature and modern design.
 </div>
 
 <div>
-<img src="assets/preview.jpg"
+<img src="assets/preview.jpg?v=2"
 class="rounded-2xl shadow-lg w-full"
 alt="Landscape Work">
 </div>
@@ -274,7 +276,7 @@ fetch("data/site.json")
 .then(res=>res.json())
 .then(data=>{
 document.getElementById("siteLogo").src =
-data.logo || "assets/verdanita-logo-white.png";
+(data.logo || "assets/verdanita-logo-white.png") + "?v=" + Date.now();
 });
 
 /* PROJECTS */
@@ -335,4 +337,3 @@ document.getElementById("formStatus").innerText =
 
 </body>
 </html>
-
